@@ -1,0 +1,90 @@
+{
+  "name": "catadmin",
+  "description": "catalyst admin web front end",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --recursive",
+    "test:watch": "npm test -- --watch",
+    "postinstall": "npm test && gulp build"
+  },
+  "author": "Keith Rousseau",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.7.0",
+    "cspace-react-components": "https://github.com/communispace/cspace-react-components.git",
+    "history": "^1.13.1",
+    "immutable": "^3.7.5",
+    "react": "^0.14.3",
+    "react-dnd": "^2.0.2",
+    "react-dnd-html5-backend": "^2.0.0",
+    "react-dom": "^0.14.3",
+    "react-immutable-proptypes": "^1.5.0",
+    "react-pure-render": "^1.0.2",
+    "react-redux": "^4.0.0",
+    "react-router": "^1.0.0",
+    "redux": "^3.0.4",
+    "redux-thunk": "^1.0.0"
+  },
+  "devDependencies": {
+    "assets-webpack-plugin": "^3.2.0",
+    "babel": "^6.1.18",
+    "babel-cli": "^6.2.0",
+    "babel-core": "^6.2.1",
+    "babel-eslint": "^5.0.0-beta4",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
+    "css-loader": "^0.23.0",
+    "del": "^2.1.0",
+    "eslint": "^1.10.2",
+    "eslint-loader": "^1.1.1",
+    "eslint-plugin-react": "^3.11.1",
+    "expect": "^1.13.0",
+    "gulp": "^3.9.0",
+    "gulp-concat-css": "^2.2.0",
+    "gulp-if": "^2.0.0",
+    "gulp-minify-css": "^1.2.2",
+    "gulp-modify-css-urls": "^0.2.2",
+    "gulp-nsp": "^2.1.0",
+    "gulp-rev": "^6.0.1",
+    "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.3.4",
+    "spawn-sync": "^1.0.14",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.9"
+  },
+  "paths": {
+    "source": {
+      "css": [
+        "src/css/**/*.scss",
+        "src/css/**/*.css",
+        "../static/css/shared.css"
+      ],
+      "sharedCss": [
+        "src/css/shared/**/*.css"
+      ],
+      "js": [
+        "src/js/**/*.js",
+        "src/js/**/*.jsx"
+      ]
+    },
+    "dest": {
+      "css": "../static/css",
+      "sharedCssTemp": "src/css/shared",
+      "js": "../static/js",
+      "hashfile": "../static/webpack-assets.json"
+    },
+    "nobuild": {
+      "allfiles": "src/css/shared/**/*",
+      "css": "src/css/shared/**/*.css"
+    },
+    "manifest": {
+      "css": "../static"
+    }
+  }
+}
