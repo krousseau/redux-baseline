@@ -80,7 +80,7 @@ gulp.task('build-js-dev', function(cb){
     });
 });
 
-gulp.task('css-dev', ['clean-css', 'css-libs'], function () {
+gulp.task('css-dev', ['clean-css'], function () {
   return gulp.src(pkg.paths.source.css)
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -90,7 +90,7 @@ gulp.task('css-dev', ['clean-css', 'css-libs'], function () {
     .pipe(gulp.dest(pkg.paths.dest.css));
 });
 
-gulp.task('css-prod', ['clean-css', 'css-libs'], function () {
+gulp.task('css-prod', ['clean-css'], function () {
   return gulp.src(pkg.paths.source.css)
     .pipe(gulpif(/.scss$/, sass({
         errLogToConsole: true
@@ -159,26 +159,4 @@ gulp.task('clean-css', function (cb) {
             cb();
         });
     });
-});
-
-
-gulp.task('css-libs', ['clean-css'], function(){
-    // Copy CSS libs, fonts, etc. These are defaults that should always be there.
-    gulp.src([pkg.paths.nobuild.allfiles])
-        .pipe(gulp.dest(pkg.paths.dest.css + "/shared"));
-
-    gulp.src(pkg.paths.source.sharedCss)
-        .pipe(concatCss('shared.css', { rebaseUrls: true }))
-        .pipe(modifyCssUrls({
-            modify: function(url, filePath){
-                // Clean up font URLs
-                if(url.indexOf('font') > -1){
-                    return url.substr(url.lastIndexOf('/font') + '/font'.length + 1)
-                }
-                return url;
-            },
-            prepend: '/public/static/css/shared/font/'
-        }))
-        .pipe(cssMinify())
-        .pipe(gulp.dest(pkg.paths.dest.css + "/shared"));
 });

@@ -62,11 +62,7 @@
     "source": {
       "css": [
         "src/css/**/*.scss",
-        "src/css/**/*.css",
-        "../static/css/shared.css"
-      ],
-      "sharedCss": [
-        "src/css/shared/**/*.css"
+        "src/css/**/*.css"
       ],
       "js": [
         "src/js/**/*.js",
@@ -74,17 +70,17 @@
       ]
     },
     "dest": {
-      "css": "../static/css",
+      "css": "dist/css",
       "sharedCssTemp": "src/css/shared",
-      "js": "../static/js",
-      "hashfile": "../static/webpack-assets.json"
+      "js": "dist/js",
+      "hashfile": "dist/webpack-assets.json"
     },
     "nobuild": {
       "allfiles": "src/css/shared/**/*",
       "css": "src/css/shared/**/*.css"
     },
     "manifest": {
-      "css": "../static"
+      "css": "dist"
     }
   }
 }
