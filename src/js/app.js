@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import EnterpriseConfigApp from './containers/App.jsx';
+import App from './containers/App.jsx';
 
 ReactDOM.render(
     <App />,

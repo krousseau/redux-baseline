@@ -11,7 +11,7 @@ const finalCreateStore = compose(
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore);
-const store = finalCreateStore(masterReducer, __INITIALSTATE__);
+const store = finalCreateStore(masterReducer);
 
 export default class App extends Component {
     render() {
